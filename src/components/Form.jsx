@@ -2,14 +2,16 @@ import { Button, Group, Stack, TextInput, useMantineTheme, Chip } from "@mantine
 
 function Form() {
   const theme = useMantineTheme();
-  console.log(theme.colors.deepBlue[0])
+  function addExpense() {
+    
+  }
   return (
     <Stack align="center">
       <Group position="center" spacing="sm">
           <TextInput label="Description" placeholder="Description" />
           <TextInput label="Amount" placeholder="Amount" />
       </Group>
-      <Button type="submit" color={theme.colors.deepBlue[0]} >Add</Button>
+      <Button type="submit" color={theme.colors.deepBlue[0]} onClick={addExpense} >Add</Button>
     </Stack>
   );
 }
