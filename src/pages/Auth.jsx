@@ -64,7 +64,7 @@ async function handleAuth() {
       // If an error occurred, log it to the console
       error && console.log(error);
       // Otherwise, redirect the user to the home page
-      session && navigate("/");
+      session.session && navigate("/");
     }
   }
   

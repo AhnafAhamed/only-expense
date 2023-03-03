@@ -1,40 +1,46 @@
-import { List, Stack, ThemeIcon, Title } from "@mantine/core";
+import { List, Paper, Stack, ThemeIcon, Title } from "@mantine/core";
 import {
-  IconCircleCheck,
-  IconCircleDashed,
-  IconDotsVertical,
+  IconCoin
 } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
+import supabase from "../utils/SupabaseClient";
 
 function Expenses() {
+  const [expenses, setExpenses] = useState(null);
+  async function fetchExpenses() {
+    const { data, error } = await supabase
+      .from("tasks")
+      .select("description, amount");
+      setExpenses(data);
+    console.log(data);
+  }
+  useEffect(() => {
+    fetchExpenses();
+  }, []);
   return (
     <Stack>
       <Title order={3}>Expenses</Title>
+      {expenses &&
       <List
         spacing="xs"
         size="sm"
         center
         icon={
-          <ThemeIcon color="teal" size={24} radius="xl">
-            <IconCircleCheck size={16} />
+          <ThemeIcon size={24} radius="xl">
+            <IconCoin size={16} />
           </ThemeIcon>
         }
       >
-        <List.Item>
-          Clone or download repository from GitHub{" "}
-          <ThemeIcon color="blue" size={24} radius="xl">
-            <IconDotsVertical size={16} />
-          </ThemeIcon>
+        {expenses.map((expense) => (
+
+        <Paper bg='blue' p='xs' mb='4px'>
+          <List.Item>
+          {expense.description} - {expense.amount}
         </List.Item>
-        <List.Item
-          icon={
-            <ThemeIcon color="blue" size={24} radius="xl">
-              <IconCircleDashed size={16} />
-            </ThemeIcon>
-          }
-        >
-          Submit a pull request once you are done
-        </List.Item>
+        </Paper>
+        ))}
       </List>
+}
     </Stack>
   );
 }

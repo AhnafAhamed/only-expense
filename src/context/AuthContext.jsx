@@ -8,9 +8,7 @@ export function AuthProvider({ children }) {
 
   async function getUser() {
     const { data, error } = await supabase.auth.getSession();
-    data && console.log({ sessionData: data.session.user });
-    error && console.log({ sessionError: error });
-    setUser(data.session.user);
+    setUser(data.session?.user);
   }
 
   useEffect(() => {
