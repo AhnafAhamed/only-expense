@@ -6,12 +6,12 @@ import Auth from "./pages/Auth";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Profile from "./pages/Profile";
 import supabase from "./utils/SupabaseClient";
+import Login from "./pages/Login";
 
 function App() {
   const navigate = useNavigate();
   return (
     <ProtectedRoute>
-      <Center style={{ height: "100vh" }}>
         <Routes>
           <Route path="/auth" element={<Auth />} />
           <Route
@@ -37,8 +37,8 @@ function App() {
             }
           />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
-      </Center>
     </ProtectedRoute>
   );
 }

@@ -12,7 +12,6 @@ function Expenses() {
       .from("tasks")
       .select("description, amount");
       setExpenses(data);
-    console.log(data);
   }
   useEffect(() => {
     fetchExpenses();

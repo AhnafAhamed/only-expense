@@ -7,11 +7,12 @@ function ProtectedRoute({ children }) {
   const {user} = useUserAuth()
 
   useEffect(() => {
+    console.log({user})
     if (!user) {
       navigate('/auth')
       return
     }
-    navigate('/')
+    navigate('/login')
   }, [user]);
   return children;
 }

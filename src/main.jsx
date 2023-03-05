@@ -15,8 +15,18 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         withNormalizeCSS
         theme={{
           colorScheme: "light",
+          fontFamily: "Inter, sans-serif",
           colors: {
             deepBlue: ["#E9EDFC", "#C1CCF6", "#99ABF0"],
+            darkGrey: ["#171A20"],
+            bgGrey: ['#E0E0E040']
+          },
+          fontSizes: {
+            xs: '12px',
+            sm: '14px',
+            md: '16px',
+            lg: '32px',
+            xl: '74px',
           },
 
           shadows: {
@@ -32,7 +42,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           },
         }}
       >
-        <App />
+        <App  />
       </MantineProvider>
     </BrowserRouter>
     </AuthProvider>
