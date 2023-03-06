@@ -19,6 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           colors: {
             deepBlue: ["#E9EDFC", "#C1CCF6", "#99ABF0"],
             darkGrey: ["#171A20"],
+            darkGreyShade: ["#171A2080"],
             bgGrey: ['#E0E0E040']
           },
           fontSizes: {
