@@ -41,6 +41,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               h1: { fontSize: 30 },
             },
           },
+          components: {
+            Button: {
+              styles: (theme, params) => ({
+                root: {
+                  '&:hover': { backgroundColor: theme.colors.darkGrey}
+                },
+              }),
+            },
+          },
         }}
       >
         <App  />
