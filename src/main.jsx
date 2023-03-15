@@ -14,6 +14,26 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         withGlobalStyles
         withNormalizeCSS
         theme={{
+          components: {
+            Button: {
+              styles: (theme, params) => ({
+                root: {
+                  backgroundColor: theme.colors.darkGrey,
+                  height: 'auto',
+                  padding: '12px 16px',
+                  '&:hover': { backgroundColor: theme.colors.darkGrey}
+                },
+              }),
+            },
+            TextInput: {
+              styles: (theme, params) => ({
+                root: {
+                  input: { padding: '10px 16px' },
+                  'input:focus': { borderColor: theme.colors.darkGrey}
+                },
+              }),
+            }
+          },
           colorScheme: "light",
           fontFamily: "Inter, sans-serif",
           colors: {
@@ -40,16 +60,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             sizes: {
               h1: { fontSize: 30 },
             },
-          },
-          components: {
-            Button: {
-              styles: (theme, params) => ({
-                root: {
-                  '&:hover': { backgroundColor: theme.colors.darkGrey}
-                },
-              }),
-            },
-          },
+          }
         }}
       >
         <App  />
