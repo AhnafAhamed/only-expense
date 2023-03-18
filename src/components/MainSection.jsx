@@ -1,8 +1,12 @@
+import { useContext, useEffect } from "react";
 import { Flex } from "@mantine/core";
-import Expenses from "./Expenses";
-import Recent from "./Recent";
+import Settings from "./settings/Settings";
+import { ViewToggleContext } from "../context/ViewToggleContext";
+import Tracker from "./tracker/Tracker";
 
 const MainSection = () => {
+  const { isSettingsView } = useContext(ViewToggleContext)
+
   return (
     <Flex
       justify="space-between"
@@ -16,8 +20,7 @@ const MainSection = () => {
         color: theme.colors.darkGrey
       })}
     >
-      <Expenses />
-      <Recent />
+      {isSettingsView ? <Settings/> : <Tracker/>}
     </Flex>
   );
 };

@@ -39,7 +39,15 @@ const Expenses = () => {
           >
             Expenses
           </Text>
-          <Flex columnGap={20} mb={40}>
+          <Flex
+            columnGap={20}
+            mb={40}
+            sx={() => ({
+              input: {
+                textAlign: "center",
+              },
+            })}
+          >
             <TextInput radius={25} placeholder="Description"></TextInput>
             <TextInput
               radius={25}
@@ -47,7 +55,12 @@ const Expenses = () => {
               type="number"
             ></TextInput>
           </Flex>
-          <Button sx={() => ({ alignSelf: "center", minWidth: '200px' })} radius={25}>Save</Button>
+          <Button
+            sx={() => ({ alignSelf: "center", minWidth: "200px" })}
+            radius={25}
+          >
+            Save
+          </Button>
         </Paper>
       </Modal>
       <Stack align="flex-start" spacing={12}>
